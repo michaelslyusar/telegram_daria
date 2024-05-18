@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import './Components/Button/Button';
+import Button from './Components/Button/Button';
+import Card from './Components/Card/Card';
+
+const { getData } = require('./db/db');
+const allCards = getData();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Button title={'Add'} type={'add'} disable={false} />
+      <Button title={'Remove'} type={'remove'} disable={false} />
+      <Button title={'Checkout'} type={'checkout'} disable={false} />
+      {allCards.map(item => <Card item={item} key={item.id}/>)}
+    </>
   );
 }
 
