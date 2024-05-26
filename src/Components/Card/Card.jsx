@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import './Card.css';
 import Button from '../Button/Button';
 
-function Card({ item }) {
+function Card({ item,onAdd,onRemove}) {
   const { title, description, price, image } = item;
   const [count, setCount] = useState(0);
 
-  const handleIncrement = () => setCount(count + 1);
-  const handleDecrement = () => setCount(count - 1);
+  const handleIncrement = () => {
+    setCount(count + 1);
+    onAdd(item);
+  };
+  const handleDecrement = () => {
+    setCount(count - 1);
+    onRemove(item);
+  }
 
   return (
     <div className='card'>

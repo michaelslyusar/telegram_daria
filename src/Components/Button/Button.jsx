@@ -9,7 +9,7 @@ function Button({ type, title, disable, onClick }) {
         (type === 'remove' && 'remove') ||
         (type === 'checkout' && 'checkout')
       }`}
-      disable={disable}
+      disabled={disable}
       onClick={onClick}
     >
       {title}
